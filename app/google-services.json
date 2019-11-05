@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "849042336260",
+    "firebase_url": "https://marmitapp-8233a.firebaseio.com",
+    "project_id": "marmitapp-8233a",
+    "storage_bucket": "marmitapp-8233a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849042336260:android:89dc02c270418a46a3a351",
+        "android_client_info": {
+          "package_name": "br.com.example.marmitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849042336260-gvaqdsbthkan4i8m41353jcdvcq1nl8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.example.marmitapp",
+            "certificate_hash": "a66be8369bbdb60594be22733971444dad1fa9d8"
+          }
+        },
+        {
+          "client_id": "849042336260-ptb8sh5c604hamptdrjgfk8ce9ejlkge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI9yn-EPoWnFqEjG1cwq8l9JeEG7T7xh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849042336260-ptb8sh5c604hamptdrjgfk8ce9ejlkge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
