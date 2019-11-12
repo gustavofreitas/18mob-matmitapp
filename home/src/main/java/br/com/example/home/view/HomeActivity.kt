@@ -3,16 +3,19 @@ package br.com.example.home.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.example.core.extension.gone
 import br.com.example.core.extension.visible
-import br.com.example.core.model.Supplier
+import br.com.example.home.model.SupplierUIModel
 import br.com.example.home.R
 import br.com.example.home.model.HomeUIState
 import br.com.example.home.model.HomeUIState.Error
 import br.com.example.home.model.HomeUIState.Success
 import br.com.example.home.model.HomeUIState.Loading
+import br.com.example.home.view.adapter.SupplierListAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -26,6 +29,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         initView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadData()
     }
 
     private fun initView() {
@@ -50,8 +58,16 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun onSuccess(suppliers: List<Supplier>){
+    private fun onSuccess(suppliers: List<SupplierUIModel?>){
+        rvSuppliers.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@HomeActivity)
+            adapter = SupplierListAdapter(suppliers)
 
+        }
+
+
+        Log.d("onSuccess", "Passei por aqui. Count: ${suppliers.size}")
     }
 
     private fun toggleLoading(uiState: HomeUIState){

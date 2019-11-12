@@ -3,28 +3,35 @@ package br.com.example.home.view
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.example.home.model.HomeUIState
-import br.com.example.home.model.toError
-import br.com.example.home.model.toLoading
-import br.com.example.home.model.toSuccess
+import br.com.example.home.data.SupplierUIRepository
+import br.com.example.home.model.*
+import kotlinx.coroutines.*
 
 class HomeViewModel: ViewModel() {
-    init{
-        loadData()
-    }
+    private val _uiState = MutableLiveData<HomeUIState>()
 
-    private val _uiState by lazy {
-        MutableLiveData<HomeUIState>()
-    }
     val uiState: LiveData<HomeUIState> = _uiState
 
-    private fun loadData(){
+    fun loadData(){
 
         //onLoadind
-        //_uiState.toLoading()
+        _uiState.toLoading()
+
+        CoroutineScope(context = Dispatchers.IO).launch {
+
+            val suppliers = SupplierUIRepository().getAll()
+
+            withContext(context = Dispatchers.Main){
+                suppliers.let{
+                    _uiState.toSuccess(it)
+                }
+
+            }
+
+        }
 
         //onSuccess
-        //_uiState.toSuccess({suppliers})
+
 
         //onError
         //_uiState.toError({error})
