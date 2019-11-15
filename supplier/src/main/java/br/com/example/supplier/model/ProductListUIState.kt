@@ -1,11 +1,12 @@
 package br.com.example.supplier.model
 
 import androidx.lifecycle.MutableLiveData
+import br.com.example.core.model.SupplierMenu
 
 sealed class ProductListUIState {
     data class Error(val error: Throwable) : ProductListUIState()
     object Loading : ProductListUIState()
-    object Success : ProductListUIState()
+    data class Success(val supplier: SupplierMenu) : ProductListUIState()
 }
 
 fun MutableLiveData<ProductListUIState>.toError(error: Throwable) {
@@ -16,6 +17,6 @@ fun MutableLiveData<ProductListUIState>.toLoading() {
     value = ProductListUIState.Loading
 }
 
-fun MutableLiveData<ProductListUIState>.toSucess() {
-    value = ProductListUIState.Success
+fun MutableLiveData<ProductListUIState>.toSuccess(supplier: SupplierMenu) {
+    value = ProductListUIState.Success(supplier)
 }

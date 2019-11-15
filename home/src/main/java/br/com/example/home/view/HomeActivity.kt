@@ -1,9 +1,7 @@
 package br.com.example.home.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,12 +35,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        btNavigatToSupplier.setOnClickListener {
-            Intent("action.supplier.item.selection").also{
-                startActivity(it)
-            }
-        }
-
         viewModel.uiState.observe(this, Observer(::updateUI))
     }
 
@@ -65,9 +57,6 @@ class HomeActivity : AppCompatActivity() {
             adapter = SupplierListAdapter(suppliers)
 
         }
-
-
-        Log.d("onSuccess", "Passei por aqui. Count: ${suppliers.size}")
     }
 
     private fun toggleLoading(uiState: HomeUIState){

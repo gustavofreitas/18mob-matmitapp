@@ -3,7 +3,7 @@ package br.com.example.home.view
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.example.home.data.SupplierUIRepository
+import br.com.example.home.domain.HomeUseCase
 import br.com.example.home.model.*
 import kotlinx.coroutines.*
 
@@ -19,7 +19,7 @@ class HomeViewModel: ViewModel() {
 
         CoroutineScope(context = Dispatchers.IO).launch {
 
-            val suppliers = SupplierUIRepository().getAll()
+            val suppliers = HomeUseCase().getAll()
 
             withContext(context = Dispatchers.Main){
                 suppliers.let{

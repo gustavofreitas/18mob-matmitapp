@@ -1,10 +1,10 @@
-package br.com.example.home.data
+package br.com.example.home.domain
 
 import br.com.example.core.data.SupplierRepository
 import br.com.example.home.model.SupplierUIModel
 
 
-class SupplierUIRepository {
+class HomeUseCase {
 
     private val repository = SupplierRepository()
 

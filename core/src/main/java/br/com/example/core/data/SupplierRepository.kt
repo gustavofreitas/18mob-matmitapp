@@ -1,7 +1,7 @@
 package br.com.example.core.data
 
-import android.util.Log
 import br.com.example.core.model.Supplier
+import br.com.example.core.model.SupplierMenu
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
@@ -20,4 +20,10 @@ class SupplierRepository {
             it.toObject(Supplier::class.java)
         }
 
+    suspend fun getProductsBySupplierId(id: String) = fireStore
+        .collection(COLLECTION_NAME)
+        .document(id)
+        .get()
+        .await()
+        .toObject(SupplierMenu::class.java)
 }
