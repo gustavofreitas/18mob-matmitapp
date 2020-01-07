@@ -1,4 +1,4 @@
-package br.com.example.supplier.view.fragment.product
+package br.com.example.supplier.view.fragment.productlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

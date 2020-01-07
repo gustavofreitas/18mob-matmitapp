@@ -3,7 +3,7 @@ package br.com.example.core.model
 import com.google.firebase.firestore.DocumentId
 import java.io.Serializable
 
-class SupplierMenu (
+data class SupplierMenu (
     @DocumentId
     val id: String = "",
     val name: String = "",

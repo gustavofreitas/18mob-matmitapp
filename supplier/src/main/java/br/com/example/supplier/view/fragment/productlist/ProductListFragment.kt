@@ -1,4 +1,4 @@
-package br.com.example.supplier.view.fragment.product
+package br.com.example.supplier.view.fragment.productlist
 
 
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.example.core.extension.gone
 import br.com.example.core.extension.visible
@@ -17,7 +16,7 @@ import br.com.example.core.navigation.SupplierNavigation
 
 import br.com.example.supplier.R
 import br.com.example.supplier.model.ProductListUIState
-import br.com.example.supplier.view.fragment.product.adapter.ProductListAdapter
+import br.com.example.supplier.view.fragment.productlist.adapter.ProductListAdapter
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
 /**

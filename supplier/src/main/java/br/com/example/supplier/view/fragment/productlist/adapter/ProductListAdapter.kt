@@ -1,4 +1,4 @@
-package br.com.example.supplier.view.fragment.product.adapter
+package br.com.example.supplier.view.fragment.productlist.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.example.core.model.Product
 import br.com.example.supplier.R
+import br.com.example.supplier.view.fragment.productlist.ProductListFragmentDirections
 import kotlinx.android.synthetic.main.item_product_list.view.*
 
 class ProductListAdapter(
@@ -25,7 +26,7 @@ class ProductListAdapter(
     override fun getItemCount(): Int = dataSource.size
 
     override fun onBindViewHolder(holder: ProductListViewHolder, position: Int) {
-        dataSource[position]?.run {
+        dataSource[position].run {
             configLine(this, holder)
         }
     }
@@ -33,16 +34,19 @@ class ProductListAdapter(
     private fun configLine(product: Product, holder: ProductListViewHolder) {
 
         holder.apply {
-            name.text = product.name
-            description.text = product.description
+            tvName.text = product.name
+            tvDescription.text = product.description
+            tvPrice.text = "R$ %.2f".format(product.price)
             view.setOnClickListener {
-                fragmentContainer.findNavController().navigate(R.id.action_productListFragment_to_selectedProductFragment)
+                val action = ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product)
+                fragmentContainer.findNavController().navigate(action)
             }
         }
     }
 
     class ProductListViewHolder(val view: View): RecyclerView.ViewHolder(view){
-        val name = view.tvProductName
-        val description = view.tvProductDescription
+        val tvName = view.tvProductName
+        val tvDescription = view.tvProductDescription
+        val tvPrice = view.tvPrice
     }
 }
