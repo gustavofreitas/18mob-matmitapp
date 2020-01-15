@@ -4,15 +4,14 @@ import br.com.example.core.model.Supplier
 import br.com.example.core.model.SupplierMenu
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
-
-const val COLLECTION_NAME = "suppliers"
+import br.com.example.core.model.FireBaseDocumentName.SUPPLIER
 
 class SupplierRepository {
 
     private val fireStore = FirebaseFirestore.getInstance()
 
     suspend fun getAll() = fireStore
-        .collection(COLLECTION_NAME)
+        .collection(SUPPLIER.documentName)
         .get()
         .await()
         .documents
@@ -21,7 +20,7 @@ class SupplierRepository {
         }
 
     suspend fun getProductsBySupplierId(id: String) = fireStore
-        .collection(COLLECTION_NAME)
+        .collection(SUPPLIER.documentName)
         .document(id)
         .get()
         .await()

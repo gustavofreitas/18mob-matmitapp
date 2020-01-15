@@ -1,0 +1,85 @@
+ext {
+    minSDK = 21
+    targetSDK = 29
+    compileSDK = 29
+
+    buildTools = '29.0.2'
+    appCompactVersion = '1.1.0'
+    kotlinVersion = '1.3.50'
+
+    AndroidArchVersion = '1.1.1'
+    databindingVersion = '3.1.4'
+    lifeCycleVersion = '2.0.0'
+    ktxVersion = '1.1.0'
+
+    constraintVersion = '1.1.3'
+    cardViewVersion = '1.0.0'
+    recyclerViewVersion = '1.0.0'
+    materialVersion='1.0.0'
+
+    fireBaseCore='17.2.1'
+    analyticsVersion='17.2.1'
+
+    constrainVersion = '1.1.3'
+    cardViewVersion = '1.0.0'
+    recyclerViewVersion = '1.0.0'
+
+    //Koin
+    koinVersion = '2.0.1'
+    //Retrofit
+    retrofitVersion = '2.3.0'
+    //Okhttp
+    okhttpVersion = '3.2.0'
+    //Gson
+    gsonVersion = '2.8.5'
+    //Room version
+    roomVersion = '2.1.0'
+
+    //Test
+    junitVersion = '4.12'
+    extJunitVersion='1.1.1'
+    espressoVersion = '3.1.1'
+    runnerVersion = '1.1.1'
+
+    coroutinesCoreVersion = '1.3.0'
+    coroutinesAndroidVersion = '1.3.0'
+    playServicesVersion = '1.3.2'
+
+
+
+    dependencies = [
+            kotlin:     "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            appCompat:  "androidx.appcompat:appcompat:$appCompactVersion",
+            ktx:        "androidx.core:core-ktx:$ktxVersion",
+            constrain:  "androidx.constraintlayout:constraintlayout:$constraintVersion",
+
+            material:   "com.google.android.material:material:$materialVersion",
+
+            analytics:  "com.google.firebase:firebase-analytics:$analyticsVersion",
+
+            firebaseCore: "com.google.firebase:firebase-core:$fireBaseCore",
+
+            koin: "org.koin:koin-android:$koinVersion",
+            koinViewModel: "org.koin:koin-androidx-viewmodel:$koinVersion",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitRxAdapter:
+                    "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            retrofitGsonConverter:
+                    "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            gson: "com.google.code.gson:gson:$gsonVersion",
+            room: "androidx.room:room-runtime:$roomVersion",
+            roomRxJava: "androidx.room:room-rxjava2:$roomVersion",
+            roomCompiler: "androidx.room:room-compiler:$roomVersion",
+            coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion",
+            coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion",
+            playServices: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$playServicesVersion",
+    ]
+
+    testDependecies = [
+            junit: "junit:junit:$junitVersion",
+            extJunit: "androidx.test.ext:junit:$extJunitVersion",
+            espresso:
+                    "androidx.test.espresso:espresso-core:$espressoVersion",
+            runner: "androidx.test:runner:$runnerVersion"
+    ]
+}

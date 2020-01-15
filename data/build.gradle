@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration["compileSDK"]
+    defaultConfig {
+        minSdkVersion minSDK
+        targetSdkVersion targetSDK
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    implementation project(":domain")
+    implementation dependencies.kotlin
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitRxAdapter
+    implementation dependencies.retrofitGsonConverter
+    implementation dependencies.gson
+    implementation dependencies.room
+    kapt dependencies.roomCompiler
+    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
+    implementation dependencies.koin
+
+    implementation 'com.google.firebase:firebase-firestore:21.3.0'
+    api dependencies.coroutinesCore
+    api dependencies.coroutinesAndroid
+    api dependencies.playServices
+}
