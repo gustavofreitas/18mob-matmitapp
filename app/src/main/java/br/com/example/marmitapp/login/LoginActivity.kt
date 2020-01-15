@@ -3,7 +3,7 @@ package br.com.example.marmitapp.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.example.marmitapp.R
-import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
