@@ -24,6 +24,9 @@ ext {
     cardViewVersion = '1.0.0'
     recyclerViewVersion = '1.0.0'
 
+    //Navigation
+    navigationVersion = '2.2.0-rc01'
+
     //Koin
     koinVersion = '2.0.1'
     //Retrofit
@@ -56,6 +59,10 @@ ext {
             material:   "com.google.android.material:material:$materialVersion",
             recyclerview: "androidx.recyclerview:recyclerview:$recyclerViewVersion",
             lifecycle: "androidx.lifecycle:lifecycle-extensions:$lifeCycleVersion",
+
+            //Navigation
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi: "androidx.navigation:navigation-ui-ktx:$navigationVersion",
 
             analytics:  "com.google.firebase:firebase-analytics:$analyticsVersion",
 

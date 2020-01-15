@@ -9,17 +9,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.example.core.model.SupplierMenu
-import br.com.example.core.navigation.SupplierNavigation
+import br.com.example.domain.entity.SupplierMenu
+import br.com.example.marmitapp.R
 
-import br.com.example.supplier.R
 import br.com.example.marmitapp.model.ProductListUIState
 import br.com.example.marmitapp.view.fragment.productlist.adapter.ProductListAdapter
 import kotlinx.android.synthetic.main.fragment_product_list.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class ProductListFragment : Fragment() {
     private val viewModel: ProductListViewModel by lazy{
         ViewModelProviders.of(this)[ProductListViewModel::class.java]
@@ -48,9 +44,6 @@ class ProductListFragment : Fragment() {
             activity?.finish()
         }
         viewModel.uiState.observe(viewLifecycleOwner, Observer(::updateUI))
-        activity?.intent?.getStringExtra(SupplierNavigation.SUPPLIER_ID)?.let{
-            viewModel.loadData(it)
-        }
 
     }
 
@@ -68,20 +61,20 @@ class ProductListFragment : Fragment() {
         }
     }
 
-    private fun updateUI(uiState: br.com.example.marmitapp.model.ProductListUIState?) {
+    private fun updateUI(uiState: ProductListUIState?) {
         uiState?.apply {
             when(this){
-                is br.com.example.marmitapp.model.ProductListUIState.Error -> TODO()
-                is br.com.example.marmitapp.model.ProductListUIState.Success -> onSuccess(supplier)
+                is ProductListUIState.Error -> TODO()
+                is ProductListUIState.Success -> onSuccess(supplier)
             }
             toggleLoading(this)
         }
     }
 
-    private fun toggleLoading(uiState: br.com.example.marmitapp.model.ProductListUIState){
-        when(uiState){
-            br.com.example.marmitapp.model.ProductListUIState.Loading -> loading.visible()
-            else -> loading.gone()
+    private fun toggleLoading(uiState: ProductListUIState){
+        loading.visibility = when(uiState){
+            ProductListUIState.Loading -> View.VISIBLE
+            else -> View.INVISIBLE
         }
     }
 }

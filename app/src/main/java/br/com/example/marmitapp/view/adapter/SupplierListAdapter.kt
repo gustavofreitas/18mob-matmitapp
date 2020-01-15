@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import br.com.example.core.navigation.HomeNavigation
-import br.com.example.home.R
+import br.com.example.marmitapp.R
 import br.com.example.marmitapp.model.SupplierUIModel
 import kotlinx.android.synthetic.main.item_supplier_list.view.*
 
@@ -35,9 +34,7 @@ class SupplierListAdapter(val dataSource: List<SupplierUIModel?>): Adapter<Suppl
         holder.apply {
             title.text = supplier.name
             view.setOnClickListener {
-                HomeNavigation.toSupplierProductList(
-                    holder.view.context,
-                    supplier.id)
+
             }
         }
     }

@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.example.marmitapp.view.HomeActivity">
-
-
-
+    tools:context="br.com.example.marmitapp.view.fragment.supplierlist.SupplierFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSuppliers"

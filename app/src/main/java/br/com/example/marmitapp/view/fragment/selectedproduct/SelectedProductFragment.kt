@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import br.com.example.core.model.Product
+import br.com.example.domain.entity.Product
+import br.com.example.marmitapp.R
 
-import br.com.example.supplier.R
 import kotlinx.android.synthetic.main.fragment_selected_product.*
 
 class SelectedProductFragment : Fragment() {

@@ -8,7 +8,7 @@ class GetProductListUseCase(
     private val productRepository: ProductRepository
 ) {
 
-    fun execute(supplier: String): SupplierMenu{
+    suspend fun execute(supplier: String): SupplierMenu{
         return productRepository.getProductBySupplier(supplier)
     }
 

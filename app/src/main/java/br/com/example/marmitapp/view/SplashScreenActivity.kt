@@ -20,9 +20,10 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun goToNext(){
-        Intent("action.home.open").also{
+
+        Intent(this,  MainActivity::class.java).also{
             startActivity(it)
+            this.finish()
         }
-        finish()
     }
 }

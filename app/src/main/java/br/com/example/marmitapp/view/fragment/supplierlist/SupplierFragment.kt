@@ -1,8 +1,10 @@
-package br.com.example.marmitapp.view
+package br.com.example.marmitapp.view.fragment.supplierlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,18 +15,24 @@ import br.com.example.marmitapp.model.HomeUIState.Error
 import br.com.example.marmitapp.model.HomeUIState.Success
 import br.com.example.marmitapp.model.HomeUIState.Loading
 import br.com.example.marmitapp.view.adapter.SupplierListAdapter
-import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_supplier.*
 
-class HomeActivity : AppCompatActivity() {
+class SupplierFragment : Fragment() {
 
-    private val viewModel: HomeViewModel by lazy{
-        ViewModelProviders.of(this)[HomeViewModel::class.java]
+    private val viewModel: SupplierViewModel by lazy{
+        ViewModelProviders.of(this)[SupplierViewModel::class.java]
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_supplier, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initView()
     }
 
@@ -52,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
     private fun onSuccess(suppliers: List<SupplierUIModel?>){
         rvSuppliers.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@HomeActivity)
+            layoutManager = LinearLayoutManager(activity)
             adapter = SupplierListAdapter(
                 suppliers
             )

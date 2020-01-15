@@ -9,19 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.example.marmitapp.view.signup.SignupActivity"></activity>
-        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".view.MainActivity"></activity>
+        <!--<activity android:name=".view.signup.SignupActivity" />
+        <activity android:name=".login.LoginActivity" />-->
         <activity android:name=".view.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="br.com.example.marmitapp.view.HomeActivity">
-            <intent-filter>
-                <action android:name="action.home.open"/>
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

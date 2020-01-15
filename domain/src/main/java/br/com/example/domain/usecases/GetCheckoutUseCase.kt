@@ -5,5 +5,5 @@ import br.com.example.domain.repository.CheckoutRepository
 class GetCheckoutUseCase(
     private val checkoutRepository: CheckoutRepository
 ) {
-    fun execute() = checkoutRepository.get()
+    suspend fun execute() = checkoutRepository.get()
 }

@@ -1,7 +1,7 @@
 package br.com.example.marmitapp.model
 
 import androidx.lifecycle.MutableLiveData
-import br.com.example.core.model.SupplierMenu
+import br.com.example.domain.entity.SupplierMenu
 
 sealed class ProductListUIState {
     data class Error(val error: Throwable) : ProductListUIState()

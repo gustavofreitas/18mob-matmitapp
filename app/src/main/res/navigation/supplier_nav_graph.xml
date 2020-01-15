@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/productListFragment">
+    app:startDestination="@id/supplierFragment">
 
     <fragment
         android:id="@+id/productListFragment"
@@ -28,4 +29,9 @@
         android:id="@+id/selectedProductFragment"
         android:name="br.com.example.marmitapp.view.fragment.selectedproduct.SelectedProductFragment"
         android:label="SelectedProductFragment" />
+    <fragment
+        android:id="@+id/supplierFragment"
+        android:name="br.com.example.marmitapp.view.fragment.supplierlist.SupplierFragment"
+        android:label="fragment_supplier"
+        tools:layout="@layout/fragment_supplier" />
 </navigation>

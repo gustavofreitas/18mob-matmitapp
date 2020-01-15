@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import br.com.example.core.model.Product
-import br.com.example.supplier.R
-import br.com.example.marmitapp.view.fragment.productlist.ProductListFragmentDirections
+import br.com.example.domain.entity.Product
+import br.com.example.marmitapp.R
 import kotlinx.android.synthetic.main.item_product_list.view.*
 
 class ProductListAdapter(
@@ -40,8 +39,8 @@ class ProductListAdapter(
             tvDescription.text = product.description
             tvPrice.text = "R$ %.2f".format(product.price)
             view.setOnClickListener {
-                val action = ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product)
-                fragmentContainer.findNavController().navigate(action)
+                //val action = ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product)
+                //fragmentContainer.findNavController().navigate(action)
             }
         }
     }
