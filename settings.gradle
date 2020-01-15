@@ -1,2 +1,2 @@
-include ':app', ':home', ':coordinator', ':supplier', ':configuration', ':checkout', ':core', ':domain', ':data'
+include ':app', ':domain', ':data'
 rootProject.name='MarmitApp'

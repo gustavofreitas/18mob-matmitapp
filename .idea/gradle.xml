@@ -9,14 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/checkout" />
-            <option value="$PROJECT_DIR$/configuration" />
-            <option value="$PROJECT_DIR$/coordinator" />
-            <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/home" />
-            <option value="$PROJECT_DIR$/supplier" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
