@@ -16,12 +16,11 @@ import br.com.example.marmitapp.model.HomeUIState.Success
 import br.com.example.marmitapp.model.HomeUIState.Loading
 import br.com.example.marmitapp.view.adapter.SupplierListAdapter
 import kotlinx.android.synthetic.main.fragment_supplier.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SupplierFragment : Fragment() {
 
-    private val viewModel: SupplierViewModel by lazy{
-        ViewModelProviders.of(this)[SupplierViewModel::class.java]
-    }
+    private val supplierViewModel: SupplierViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +37,11 @@ class SupplierFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadData()
+        supplierViewModel.loadData()
     }
 
     private fun initView() {
-        viewModel.uiState.observe(this, Observer(::updateUI))
+        supplierViewModel.uiState.observe(this, Observer(::updateUI))
     }
 
     private fun updateUI(uiState: HomeUIState){

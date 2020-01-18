@@ -33,5 +33,17 @@
         android:id="@+id/supplierFragment"
         android:name="br.com.example.marmitapp.view.fragment.supplierlist.SupplierFragment"
         android:label="fragment_supplier"
-        tools:layout="@layout/fragment_supplier" />
+        tools:layout="@layout/fragment_supplier">
+        <action
+            android:id="@+id/action_supplierFragment_to_ProductListFragment"
+            app:destination="@id/productListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/supplierFragment"
+            app:popUpToInclusive="false" >>
+        </action>
+    </fragment>
 </navigation>

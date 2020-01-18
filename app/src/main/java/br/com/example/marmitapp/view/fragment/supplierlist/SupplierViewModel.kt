@@ -3,13 +3,16 @@ package br.com.example.marmitapp.view.fragment.supplierlist
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.example.domain.usecases.GetSupplierListUseCase
 import br.com.example.marmitapp.model.HomeUIState
 import br.com.example.marmitapp.model.SupplierUIModel
 import br.com.example.marmitapp.model.toLoading
 import br.com.example.marmitapp.model.toSuccess
 import kotlinx.coroutines.*
 
-class SupplierViewModel: ViewModel() {
+class SupplierViewModel(
+    private val useCase: GetSupplierListUseCase
+): ViewModel() {
     private val _uiState = MutableLiveData<HomeUIState>()
 
     val uiState: LiveData<HomeUIState> = _uiState
@@ -20,16 +23,18 @@ class SupplierViewModel: ViewModel() {
         _uiState.toLoading()
 
         CoroutineScope(context = Dispatchers.IO).launch {
+            useCase.execute().map {supplier ->
+                SupplierUIModel(
+                    supplier.id,
+                    supplier.name,
+                    ""
+                )
 
-            val suppliers = listOf<SupplierUIModel>()
-
-            withContext(context = Dispatchers.Main){
-                suppliers.let{
-                    _uiState.toSuccess(it)
+            }.also{
+                withContext(context = Dispatchers.Main){
+                        _uiState.toSuccess(it)
                 }
-
             }
-
         }
 
         //onSuccess
