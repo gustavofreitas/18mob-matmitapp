@@ -4,8 +4,8 @@ import br.com.example.domain.entity.Checkout
 
 interface CheckoutDataSource {
     fun get(): Checkout
-    fun insert(checkout: Checkout): Checkout
-    fun update(checkout: Checkout): Checkout
+    fun insert(checkout: Checkout)
+    fun update(checkout: Checkout)
     fun delete()
 
 }

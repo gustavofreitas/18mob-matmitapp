@@ -8,12 +8,12 @@ class AddProductToCheckoutUseCase(
     private val checkoutRepository: CheckoutRepository,
     private val calculate: CalculateProductUseCase
 ) {
-    suspend fun execute(product: Product): Checkout{
+    suspend fun execute(product: Product){
         val checkout = checkoutRepository.get()
 
         checkout.totalPrice += calculate.execute(product)
 
-        return when(checkout.id == 0) {
+        when(checkout.id == 0) {
             true -> checkoutRepository.save(checkout)
             false -> checkoutRepository.update(checkout)
         }

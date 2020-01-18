@@ -11,12 +11,12 @@ class CheckoutDataSourceImpl(
         return checkoutDao.get().let { CheckoutCacheMapper.map(it) }
     }
 
-    override fun insert(checkout: Checkout): Checkout {
-       return checkoutDao.insert(CheckoutCacheMapper.map(checkout)).let{CheckoutCacheMapper.map(it)}
+    override fun insert(checkout: Checkout) {
+        checkoutDao.insert(CheckoutCacheMapper.map(checkout))
     }
 
-    override fun update(checkout: Checkout): Checkout {
-        return checkoutDao.update(CheckoutCacheMapper.map(checkout)).let{CheckoutCacheMapper.map(it)}
+    override fun update(checkout: Checkout) {
+        checkoutDao.update(CheckoutCacheMapper.map(checkout))
     }
 
     override fun delete() {

@@ -41,7 +41,7 @@ class SupplierFragment : Fragment() {
     }
 
     private fun initView() {
-        supplierViewModel.uiState.observe(this, Observer(::updateUI))
+        supplierViewModel.uiState.observe(viewLifecycleOwner, Observer(::updateUI))
     }
 
     private fun updateUI(uiState: HomeUIState){

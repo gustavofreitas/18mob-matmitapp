@@ -7,9 +7,9 @@ import br.com.example.domain.repository.CheckoutRepository
 class CheckoutRepositoryImpl(
     private val checkoutDataSource: CheckoutDataSource
 ): CheckoutRepository {
-    override suspend fun save(checkout: Checkout) = checkoutDataSource.insert(checkout)
+    override suspend fun save(checkout: Checkout){checkoutDataSource.insert(checkout)}
 
-    override suspend fun update(checkout: Checkout) = checkoutDataSource.update(checkout)
+    override suspend fun update(checkout: Checkout){checkoutDataSource.update(checkout)}
 
     override suspend fun delete(checkout: Checkout){
         checkoutDataSource.delete()
