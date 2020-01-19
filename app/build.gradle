@@ -18,7 +18,7 @@ android {
         applicationId "br.com.example.marmitapp"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode 3
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -69,6 +69,7 @@ dependencies {
     api dependencies.coroutinesCore
     api dependencies.coroutinesAndroid
     implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.google.firebase:firebase-config:19.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
