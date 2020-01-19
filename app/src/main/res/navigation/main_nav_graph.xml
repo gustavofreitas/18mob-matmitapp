@@ -51,4 +51,13 @@
                 android:defaultValue=" "/>
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="br.com.example.marmitapp.view.fragment.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" />
+    <action
+        android:id="@+id/action_global_checkoutFragment"
+        app:destination="@id/checkoutFragment"
+        app:launchSingleTop="true" />
 </navigation>
