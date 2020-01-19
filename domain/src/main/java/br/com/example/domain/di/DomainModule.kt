@@ -1,9 +1,6 @@
 package br.com.example.domain.di
 
-import br.com.example.domain.usecases.AddProductToCheckoutUseCase
-import br.com.example.domain.usecases.CalculateProductUseCase
-import br.com.example.domain.usecases.GetProductListUseCase
-import br.com.example.domain.usecases.GetSupplierListUseCase
+import br.com.example.domain.usecases.*
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -15,6 +12,11 @@ val useCaseModule = module {
     factory {
         AddProductToCheckoutUseCase(
             get(),
+            get()
+        )
+    }
+    factory {
+        GetCheckoutUseCase(
             get()
         )
     }
