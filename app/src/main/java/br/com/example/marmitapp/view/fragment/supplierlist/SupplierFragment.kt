@@ -14,7 +14,7 @@ import br.com.example.marmitapp.model.SupplierListUIState
 import br.com.example.marmitapp.model.SupplierListUIState.Error
 import br.com.example.marmitapp.model.SupplierListUIState.Success
 import br.com.example.marmitapp.model.SupplierListUIState.Loading
-import br.com.example.marmitapp.view.adapter.SupplierListAdapter
+import br.com.example.marmitapp.view.fragment.supplierlist.adapter.SupplierListAdapter
 import kotlinx.android.synthetic.main.fragment_supplier.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -1,4 +1,4 @@
-package br.com.example.marmitapp.view.adapter
+package br.com.example.marmitapp.view.fragment.supplierlist.adapter
 
 import android.view.LayoutInflater
 import android.view.View
