@@ -7,7 +7,7 @@ import br.com.example.domain.usecases.GetSupplierListUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
-    factory<GetProductListUseCase> {
+    factory {
         GetProductListUseCase(
             get()
         )

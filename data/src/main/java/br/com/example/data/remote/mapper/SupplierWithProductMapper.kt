@@ -12,7 +12,7 @@ object SupplierWithProductMapper {
         id = remoteData.id,
         name = remoteData.name,
         photo = remoteData.photo,
-        menu = remoteData.productList.map{map(it)}
+        menu = remoteData.products.map{map(it)}
     )
 
     fun map(remoteData: ProductItemRemote) = ProductItem(
