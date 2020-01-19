@@ -55,7 +55,7 @@ class ProductListFragment : Fragment() {
             adapter =
                 ProductListAdapter(
                     supplier.menu,
-                    fragment
+                    ::goToNext
                 )
 
         }
@@ -78,7 +78,7 @@ class ProductListFragment : Fragment() {
         }
     }
 
-    private fun getToNext(product: Product){
+    private fun goToNext(product: Product){
         ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product).also {
             findNavController().navigate(it)
         }
