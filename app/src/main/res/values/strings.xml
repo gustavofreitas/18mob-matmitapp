@@ -8,4 +8,6 @@
     <string name="label_name">Nome</string>
     <string name="label_phone">Telefone</string>
     <string name="header_new_user">Novo Usuário</string>
+    <string name="finalizar_compra">FINALIZAR COMPRA</string>
+    <string name="checkout_title">Carrinho de Compras</string>
 </resources>
