@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/supplierFragment"
         android:name="br.com.example.marmitapp.view.fragment.supplierlist.SupplierFragment"
-        android:label="fragment_supplier"
+        android:label="SupplierFragment"
         tools:layout="@layout/fragment_supplier">
         <action
             android:id="@+id/action_supplierFragment_to_ProductListFragment"
@@ -43,7 +43,11 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/supplierFragment"
-            app:popUpToInclusive="false" >
+            app:popUpToInclusive="false">
+            <argument
+                android:name="supplierId"
+                app:argType="string"
+                app:nullable="false" />
         </action>
     </fragment>
 </navigation>

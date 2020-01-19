@@ -9,7 +9,9 @@ import br.com.example.marmitapp.R
 import br.com.example.marmitapp.model.SupplierUIModel
 import kotlinx.android.synthetic.main.item_supplier_list.view.*
 
-class SupplierListAdapter(val dataSource: List<SupplierUIModel?>): Adapter<SupplierListAdapter.SupplierListViewHolder>() {
+class SupplierListAdapter(
+    val dataSource: List<SupplierUIModel?>,
+    val goToNext: (String) -> Unit): Adapter<SupplierListAdapter.SupplierListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SupplierListViewHolder {
         val view = LayoutInflater
@@ -34,7 +36,7 @@ class SupplierListAdapter(val dataSource: List<SupplierUIModel?>): Adapter<Suppl
         holder.apply {
             title.text = supplier.name
             view.setOnClickListener {
-
+                goToNext(supplier.id)
             }
         }
     }

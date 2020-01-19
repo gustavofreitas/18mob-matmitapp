@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.example.marmitapp.model.SupplierUIModel
 import br.com.example.marmitapp.R
@@ -61,7 +61,8 @@ class SupplierFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(activity)
             adapter = SupplierListAdapter(
-                suppliers
+                suppliers,
+                ::goToNext
             )
 
         }
@@ -71,6 +72,12 @@ class SupplierFragment : Fragment() {
         loading.visibility = when(uiState){
             Loading -> View.VISIBLE
             else -> View.INVISIBLE
+        }
+    }
+
+    private fun goToNext(supplierId: String){
+        SupplierFragmentDirections.actionSupplierFragmentToProductListFragment(supplierId).also{
+            this.findNavController().navigate(it)
         }
     }
 
