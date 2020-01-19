@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "849042336260-87fvh7o3t733ajo1eiipvu6tvnvf5e0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.example.marmitapp",
+            "certificate_hash": "dce3499be6ce6f1615510ee7f4af846e9c5f5db3"
+          }
+        },
+        {
           "client_id": "849042336260-gvaqdsbthkan4i8m41353jcdvcq1nl8v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

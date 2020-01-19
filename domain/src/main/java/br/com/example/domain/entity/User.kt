@@ -1,7 +1,8 @@
-package br.com.example.marmitapp.model
+package br.com.example.domain.entity
 
 data class User(
-    val nome: String = "",
+    val name: String = "",
     val email: String = "",
-    val fone: String = ""
+    val fone: String = "",
+    val password: String = ""
 )

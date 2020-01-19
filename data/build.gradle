@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
     compileSdkVersion globalConfiguration["compileSDK"]
@@ -23,6 +24,7 @@ dependencies {
     implementation dependencies.retrofitGsonConverter
     implementation dependencies.gson
     implementation dependencies.room
+    implementation 'com.google.firebase:firebase-database:16.0.4'
     kapt dependencies.roomCompiler
     implementation 'com.squareup.okhttp3:okhttp:4.2.1'
     implementation dependencies.koin
