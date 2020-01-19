@@ -8,11 +8,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.example.domain.entity.Product
 import br.com.example.marmitapp.R
+import br.com.example.marmitapp.view.fragment.productlist.ProductListFragmentDirections
 import kotlinx.android.synthetic.main.item_product_list.view.*
 
 class ProductListAdapter(
     private val dataSource: List<Product>,
-    private val fragmentContainer: Fragment
+    private val goToNext: (Product) -> Unit
 ): RecyclerView.Adapter<ProductListAdapter.ProductListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductListViewHolder {
         val view = LayoutInflater
@@ -39,8 +40,7 @@ class ProductListAdapter(
             tvDescription.text = product.description
             tvPrice.text = "R$ %.2f".format(product.price)
             view.setOnClickListener {
-                //val action = ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product)
-                //fragmentContainer.findNavController().navigate(action)
+                goToNext(product)
             }
         }
     }

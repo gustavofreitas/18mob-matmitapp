@@ -25,7 +25,7 @@ ext {
     recyclerViewVersion = '1.0.0'
 
     //Navigation
-    navigationVersion = '2.2.0-rc04'
+    navigationVersion = '2.1.0'
 
     //Koin
     koinVersion = '2.0.1'
@@ -65,6 +65,7 @@ ext {
             //Navigation
             navigationFragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
             navigationUi: "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            navigationArgs: "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion",
 
             analytics:  "com.google.firebase:firebase-analytics:$analyticsVersion",
 

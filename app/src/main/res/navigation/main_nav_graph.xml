@@ -22,7 +22,7 @@
             <argument
                 android:name="product"
                 app:argType="br.com.example.domain.entity.Product"
-                app:nullable="false"/>
+                app:nullable="true"/>
         </action>
     </fragment>
     <fragment
@@ -39,7 +39,7 @@
             app:destination="@id/productListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
-            app:launchSingleTop="true"
+            app:launchSingleTop="false"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/supplierFragment"
@@ -47,7 +47,17 @@
             <argument
                 android:name="supplierId"
                 app:argType="string"
-                app:nullable="false" />
+                app:nullable="false"
+                android:defaultValue=" "/>
         </action>
     </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="br.com.example.marmitapp.view.fragment.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" />
+    <action
+        android:id="@+id/action_global_checkoutFragment"
+        app:destination="@id/checkoutFragment"
+        app:launchSingleTop="true" />
 </navigation>

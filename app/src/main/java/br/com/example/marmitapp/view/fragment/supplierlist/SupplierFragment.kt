@@ -10,11 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.example.marmitapp.model.SupplierUIModel
 import br.com.example.marmitapp.R
-import br.com.example.marmitapp.model.HomeUIState
-import br.com.example.marmitapp.model.HomeUIState.Error
-import br.com.example.marmitapp.model.HomeUIState.Success
-import br.com.example.marmitapp.model.HomeUIState.Loading
-import br.com.example.marmitapp.view.adapter.SupplierListAdapter
+import br.com.example.marmitapp.model.SupplierListUIState
+import br.com.example.marmitapp.model.SupplierListUIState.Error
+import br.com.example.marmitapp.model.SupplierListUIState.Success
+import br.com.example.marmitapp.model.SupplierListUIState.Loading
+import br.com.example.marmitapp.view.fragment.supplierlist.adapter.SupplierListAdapter
 import kotlinx.android.synthetic.main.fragment_supplier.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -44,7 +44,7 @@ class SupplierFragment : Fragment() {
         supplierViewModel.uiState.observe(viewLifecycleOwner, Observer(::updateUI))
     }
 
-    private fun updateUI(uiState: HomeUIState){
+    private fun updateUI(uiState: SupplierListUIState){
         when(uiState){
             is Error -> onError(uiState.error)
             is Success -> onSuccess(uiState.suppliers)
@@ -68,7 +68,7 @@ class SupplierFragment : Fragment() {
         }
     }
 
-    private fun toggleLoading(uiState: HomeUIState){
+    private fun toggleLoading(uiState: SupplierListUIState){
         loading.visibility = when(uiState){
             Loading -> View.VISIBLE
             else -> View.INVISIBLE

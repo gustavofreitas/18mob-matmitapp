@@ -8,5 +8,5 @@ data class SupplierWithProducts(
     val id: String = "",
     val name: String = "",
     val photo: String = "",
-    val productList: List<ProductRemote> = listOf()
+    val products: List<ProductRemote> = listOf()
 ): Serializable

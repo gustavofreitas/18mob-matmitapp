@@ -7,19 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.example.domain.entity.Product
 import br.com.example.domain.entity.SupplierMenu
 import br.com.example.marmitapp.R
 
 import br.com.example.marmitapp.model.ProductListUIState
 import br.com.example.marmitapp.view.fragment.productlist.adapter.ProductListAdapter
 import kotlinx.android.synthetic.main.fragment_product_list.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProductListFragment : Fragment() {
-    private val viewModel: ProductListViewModel by lazy{
-        ViewModelProviders.of(this)[ProductListViewModel::class.java]
-    }
+    private val viewModel: ProductListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,19 +32,19 @@ class ProductListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        test()
     }
 
-    private fun test() {
 
-    }
 
     private fun initView() {
         ibExit.setOnClickListener {
-            activity?.finish()
+            findNavController().navigateUp()
         }
         viewModel.uiState.observe(viewLifecycleOwner, Observer(::updateUI))
 
+        arguments?.get("supplierId").toString().let{
+            viewModel.loadData(it)
+        }
     }
 
     private fun onSuccess(supplier: SupplierMenu) {
@@ -55,7 +55,7 @@ class ProductListFragment : Fragment() {
             adapter =
                 ProductListAdapter(
                     supplier.menu,
-                    fragment
+                    ::goToNext
                 )
 
         }
@@ -75,6 +75,12 @@ class ProductListFragment : Fragment() {
         loading.visibility = when(uiState){
             ProductListUIState.Loading -> View.VISIBLE
             else -> View.INVISIBLE
+        }
+    }
+
+    private fun goToNext(product: Product){
+        ProductListFragmentDirections.actionProductListFragmentToSelectedProductFragment(product).also {
+            findNavController().navigate(it)
         }
     }
 }

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.example.domain.usecases.GetSupplierListUseCase
-import br.com.example.marmitapp.model.HomeUIState
+import br.com.example.marmitapp.model.SupplierListUIState
 import br.com.example.marmitapp.model.SupplierUIModel
 import br.com.example.marmitapp.model.toLoading
 import br.com.example.marmitapp.model.toSuccess
@@ -13,9 +13,9 @@ import kotlinx.coroutines.*
 class SupplierViewModel(
     private val useCase: GetSupplierListUseCase
 ): ViewModel() {
-    private val _uiState = MutableLiveData<HomeUIState>()
+    private val _uiState = MutableLiveData<SupplierListUIState>()
 
-    val uiState: LiveData<HomeUIState> = _uiState
+    val uiState: LiveData<SupplierListUIState> = _uiState
 
     fun loadData(){
 
