@@ -30,6 +30,11 @@ val useCaseModule = module {
             get()
         )
     }
+    factory {
+        CheckoutEmptyUseCase(
+            get()
+        )
+    }
     factory { CalculateProductUseCase() }
 
 }
