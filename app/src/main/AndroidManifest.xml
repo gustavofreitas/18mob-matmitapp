@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.MainActivity"></activity>
-        <!--<activity android:name=".view.signup.SignupActivity" />
-        <activity android:name=".login.LoginActivity" />-->
+        <activity android:name="br.com.example.marmitapp.view.security.signup.SignUpActivity" />
+        <activity android:name="br.com.example.marmitapp.view.security.signin.SignInActivity" />
         <activity android:name=".view.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

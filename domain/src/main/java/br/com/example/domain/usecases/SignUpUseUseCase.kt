@@ -1,8 +1,15 @@
 package br.com.example.domain.usecases
 
-class SignUpUseUseCase {
+import br.com.example.domain.entity.SignUser
+import br.com.example.domain.entity.User
+import br.com.example.domain.repository.SecurityRepository
 
-    fun execute(){
-        NotImplementedError()
+class SignUpUseUseCase(
+    private val repository: SecurityRepository
+) {
+
+    suspend fun execute(user: SignUser): User {
+        return repository.signUp(user)
     }
+
 }

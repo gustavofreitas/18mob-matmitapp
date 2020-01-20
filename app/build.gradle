@@ -7,8 +7,9 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: 'com.google.firebase.crashlytics'
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
 
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -16,7 +17,7 @@ android {
         applicationId "br.com.example.marmitapp"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode 4
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,8 +38,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation "com.google.android.material:material:1.0.0"
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.1'
 
     implementation dependencies.lifecycle
 
@@ -51,6 +50,9 @@ dependencies {
     implementation dependencies.koin
     implementation dependencies.koinViewModel
 
+    implementation dependencies.analytics
+    implementation dependencies.crashlytics
+
     implementation 'com.google.firebase:firebase-core:17.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
@@ -61,10 +63,11 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':data')
 
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
     api dependencies.coroutinesCore
     api dependencies.coroutinesAndroid
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.google.firebase:firebase-config:19.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

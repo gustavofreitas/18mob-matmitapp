@@ -1,6 +1,5 @@
 package br.com.example.marmitapp.view.fragment.productlist
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

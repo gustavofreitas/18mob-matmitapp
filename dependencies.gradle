@@ -19,6 +19,8 @@ ext {
 
     fireBaseCore='17.2.1'
     analyticsVersion='17.2.1'
+    crashlyticsVersion='17.0.0-beta01'
+    firebaseAuthVersion='19.2.0'
 
     constrainVersion = '1.1.3'
     cardViewVersion = '1.0.0'
@@ -70,6 +72,7 @@ ext {
             analytics:  "com.google.firebase:firebase-analytics:$analyticsVersion",
 
             firebaseCore: "com.google.firebase:firebase-core:$fireBaseCore",
+            firebaseAuth: "com.google.firebase:firebase-auth:$firebaseAuthVersion",
 
             koin: "org.koin:koin-android:$koinVersion",
             koinViewModel: "org.koin:koin-androidx-viewmodel:$koinVersion",
@@ -85,6 +88,9 @@ ext {
             coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion",
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion",
             playServices: "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$playServicesVersion",
+
+            analytics: "com.google.firebase:firebase-analytics:$analyticsVersion",
+            crashlytics: "com.google.firebase:firebase-crashlytics:$crashlyticsVersion",
     ]
 
     testDependecies = [
