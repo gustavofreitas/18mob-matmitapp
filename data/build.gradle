@@ -30,6 +30,7 @@ dependencies {
     implementation dependencies.koin
 
     implementation 'com.google.firebase:firebase-firestore:21.3.0'
+    implementation dependencies.firebaseAuth
     api dependencies.coroutinesCore
     api dependencies.coroutinesAndroid
     api dependencies.playServices

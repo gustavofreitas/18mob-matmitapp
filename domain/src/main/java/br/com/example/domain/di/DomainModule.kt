@@ -37,6 +37,10 @@ val useCaseModule = module {
     }
     factory { CalculateProductUseCase() }
 
+    factory { SignUpUseUseCase(get()) }
+    factory { SignInUserUseCase(get()) }
+    factory { HasLoggedUserUserCase(get()) }
+
 }
 
 val domainModule = listOf(useCaseModule)

@@ -1,8 +1,10 @@
 package br.com.example.domain.entity
 
+data class SignUser(
+    val email: String,
+    val password: String
+)
+
 data class User(
-    val name: String = "",
-    val email: String = "",
-    val fone: String = "",
-    val password: String = ""
+    val email: String
 )

@@ -3,16 +3,16 @@ package br.com.example.data.di
 import br.com.example.data.local.database.CheckoutDataBase
 import br.com.example.data.local.datasource.CheckoutDataSource
 import br.com.example.data.local.datasource.CheckoutDataSourceImpl
-import br.com.example.data.remote.datasource.ProductDataSource
-import br.com.example.data.remote.datasource.ProductDataSourceImpl
-import br.com.example.data.remote.datasource.SupplierDataSource
-import br.com.example.data.remote.datasource.SupplierDataSourceImpl
+import br.com.example.data.remote.datasource.*
 import br.com.example.data.repository.CheckoutRepositoryImpl
 import br.com.example.data.repository.ProductRepositoryImpl
+import br.com.example.data.repository.SecurityRepositoryImpl
 import br.com.example.data.repository.SupplierRepositoryImpl
 import br.com.example.domain.repository.CheckoutRepository
 import br.com.example.domain.repository.ProductRepository
+import br.com.example.domain.repository.SecurityRepository
 import br.com.example.domain.repository.SupplierRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -21,6 +21,7 @@ import org.koin.dsl.module
 val remoteDataModule = module{
 
     single{ FirebaseFirestore.getInstance()}
+    single{ FirebaseAuth.getInstance()}
 
     factory<ProductDataSource> {
         ProductDataSourceImpl(get())
@@ -28,6 +29,10 @@ val remoteDataModule = module{
 
     factory<SupplierDataSource> {
         SupplierDataSourceImpl(get())
+    }
+
+    factory<SecurityDataSource> {
+        SecurityDataSourceImpl(get())
     }
 
 }
@@ -40,6 +45,8 @@ val localDataModule = module {
 
 val repositoryDataModule = module{
 
+    single {}
+
     factory<CheckoutRepository> {
         CheckoutRepositoryImpl(get())
     }
@@ -50,6 +57,10 @@ val repositoryDataModule = module{
 
     factory<SupplierRepository> {
         SupplierRepositoryImpl(get())
+    }
+
+    factory<SecurityRepository> {
+        SecurityRepositoryImpl(get())
     }
 
 }
