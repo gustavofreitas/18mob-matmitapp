@@ -4,12 +4,12 @@ import androidx.lifecycle.MutableLiveData
 
 sealed class CheckoutUIState {
     data class Error(val error: Throwable): CheckoutUIState()
-    data class Success(val insertClassHere: String): CheckoutUIState()
+    data class Success(val checkout: CheckoutUIModel): CheckoutUIState()
     object Loading: CheckoutUIState()
 }
 
-fun MutableLiveData<CheckoutUIState>.toSuccess(insertClassHere: String){
-    value = CheckoutUIState.Success(insertClassHere)
+fun MutableLiveData<CheckoutUIState>.toSuccess(checkout: CheckoutUIModel){
+    value = CheckoutUIState.Success(checkout)
 }
 fun MutableLiveData<CheckoutUIState>.toError(error: Throwable){
     value = CheckoutUIState.Error(error)

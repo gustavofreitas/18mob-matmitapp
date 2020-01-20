@@ -16,7 +16,7 @@ val presentationModule = module {
     }
 
     viewModel{
-        CheckoutViewModel()
+        CheckoutViewModel(get())
     }
 }
 
