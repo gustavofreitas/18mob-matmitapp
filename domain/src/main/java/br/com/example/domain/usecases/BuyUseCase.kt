@@ -1,7 +1,12 @@
 package br.com.example.domain.usecases
 
-class BuyUseCase (){
-    fun execute(){
-        NotImplementedError()
+import br.com.example.domain.entity.Checkout
+import br.com.example.domain.repository.CheckoutRepository
+
+class BuyUseCase (
+    private val checkoutRepository: CheckoutRepository
+){
+    suspend fun execute(checkout: Checkout) {
+        checkoutRepository.save(checkout)
     }
 }

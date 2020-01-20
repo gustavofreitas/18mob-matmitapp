@@ -25,6 +25,11 @@ val useCaseModule = module {
             get()
         )
     }
+    factory {
+        BuyUseCase(
+            get()
+        )
+    }
     factory { CalculateProductUseCase() }
 
 }

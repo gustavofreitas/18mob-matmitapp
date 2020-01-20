@@ -1,5 +1,6 @@
 package br.com.example.marmitapp.view.fragment.checkout
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -63,10 +64,29 @@ class CheckoutFragment : Fragment() {
             adapter = CheckoutListAdapter(
                 checkout
             )
-
+        }
+        btCheckoutAction.setOnClickListener {
+            showConfirmation()
         }
     }
 
+    private fun showConfirmation(){
+        val builder = AlertDialog.Builder(this.context)
+        builder.setTitle(getString(R.string.checkout_confirm_dialog_title))
+        builder.setMessage(getString(R.string.checkout_confirm_dialog_message))
+        builder.setIcon(android.R.drawable.ic_dialog_alert)
+        builder.setPositiveButton(getString(R.string.checkout_confirm_positive_action)){_, which ->
+            finishCheckout()
+        }
+        builder.setNeutralButton(getString(R.string.checkout_confirm_neutral_action)){_, which ->}
+        val alertDialog: AlertDialog = builder.create()
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
+
+    private fun finishCheckout(){
+        viewModel.finishCheckout()
+    }
 
     private fun toggleLoading(uiState: CheckoutUIState){
         loading.visibility = when(uiState){

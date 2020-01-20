@@ -10,4 +10,8 @@
     <string name="header_new_user">Novo Usuário</string>
     <string name="finalizar_compra">FINALIZAR COMPRA</string>
     <string name="checkout_title">Carrinho de Compras</string>
+    <string name="checkout_confirm_dialog_title">Confirmar Compra</string>
+    <string name="checkout_confirm_dialog_message">Desejar confirmar e finalizar a compra?</string>
+    <string name="checkout_confirm_positive_action">Sim</string>
+    <string name="checkout_confirm_neutral_action">Não</string>
 </resources>

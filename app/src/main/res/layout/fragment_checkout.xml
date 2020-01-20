@@ -44,7 +44,7 @@
         android:text="Total a pagar: R$"
         android:textAlignment="center"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btCheckoutAction"
         app:layout_constraintEnd_toStartOf="@+id/tvTotalCheckout"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btCheckoutAction"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
